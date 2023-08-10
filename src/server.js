@@ -12,6 +12,9 @@ console.log(process.env.PORT)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
+//config static file
+app.use(express.static(path.join(__dirname, 'public')))
+
 //khai báo route
 app.get('/', (req, res) => {
     res.send('Hello World!Test nodemon')
