@@ -19,10 +19,16 @@ app.use(express.urlencoded()); //Parse URL-encoded bodies
 configViewEngine(app)
 
 //khai báo route
-app.use('/', webRoutes)
+app.use('/', webRoutes);
 
-connection()
+(async () => {
+    try {
+        await connection();
+        app.listen(port, () => {
+            console.log(`Example app listening on port ${port}`)
+        })
+    } catch (error) {
+        console.log("Error connection DB", error);
+    }
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+})()
