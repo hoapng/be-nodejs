@@ -3,7 +3,7 @@ const User = require("../models/user");
 const { getAllUser, getUserById, updateUserById, deleteUserById } = require("../services/CRUDService");
 
 const getHomepage = async (req, res) => {
-    let results = [];
+    let results = await User.find({});
     return res.render('home.ejs', { listUsers: results })
 }
 
