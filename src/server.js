@@ -44,7 +44,7 @@ app.use('/api/v1', apiRoutes);
         await client.connect();
         console.log('Connected successfully to server');
         const db = client.db(dbName);
-        const collection = db.collection('documents');
+        const collection = db.collection('customers');
 
         app.listen(port, () => {
             console.log(`Example app listening on port ${port}`)
