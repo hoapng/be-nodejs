@@ -15,7 +15,10 @@ const {
   deleteCustomer,
   deleteArrayCustomer,
 } = require("../controllers/customerController");
-const { postCreateProject } = require("../controllers/projectController");
+const {
+  postCreateProject,
+  getAllProject,
+} = require("../controllers/projectController");
 const routerAPI = express.Router();
 
 // router.METHOD('/route', hanler)
@@ -34,6 +37,7 @@ routerAPI.put("/customers", puttUpdateCustomer);
 routerAPI.delete("/customers", deleteCustomer);
 routerAPI.delete("/customers-many", deleteArrayCustomer);
 
+routerAPI.get("/projects", getAllProject);
 routerAPI.post("/projects", postCreateProject);
 
 routerAPI.get("/info", (req, res) => {
